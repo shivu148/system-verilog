@@ -1,0 +1,138 @@
+module loops;
+int i;
+int arr[5]={1,2,3,4,5};
+
+forever loop
+
+	initial begin
+		$display("forever loop");
+		forever begin
+			i=i+1;
+			$display("i=%0d",i);
+			#10;
+			end
+	end
+		
+
+	initial begin
+	#100 $finish;
+	end
+
+////////////////////////////////////
+
+	for loop
+	
+initial begin
+	$display("for loop");
+		for(i=0;i<10;i++)
+		$display("i=%0d",i);
+end
+
+///////////////////////////////////
+	
+	foreach loop
+	initial begin
+	$display("foreach loop");
+	foreach(arr[i]) begin
+	$display("(%0d)i=%0d",i,arr[i]);
+	end
+	end
+	
+/////////////////////////////////
+
+	repeat loop
+	initial begin
+	$display("repeat loop");
+	repeat(10)begin
+	i++;
+	$display("i=%0d",i);
+	end
+	end
+	
+////////////////////////////////////
+
+	WHILE LOOP
+	initial begin
+	$display("while loop");
+		while(i<10)begin
+		$display("i=%0d",i);
+		i++;
+		end
+	end
+	
+//////////////////////////////////////
+
+	DO WHILE LOOP
+	
+	initial begin
+	$display("do while loop");
+	do begin
+		$display("i=%0d",i);
+		i++;
+		end
+	while(i<10);
+		
+	end
+	
+////////////////////////////////////
+
+	break condition
+	
+	initial begin
+	$display("using break condition");
+		for(i=0;i<10;i++)begin
+			$display("i=%0d",i);
+			if(i==6)
+			break;
+		end
+	end
+	
+////////////////////////////////////
+
+	USING CONTINUE CONDITION
+	
+	initial begin
+	$display("using continue condition");
+		for(i=0;i<10;i++)
+		begin
+			if(i==6)
+			continue;
+			$display("i=%0d",i);
+			
+		end
+	end
+
+
+////////////////////////////////
+	unique if statement
+	int x=4;
+		initial begin
+		unique if(x==5)
+			$display("x=%0d",x);
+		else if(x==3)
+			$display("x=%0d",x);
+		else
+			$display("x is either 3 or 5");
+		end
+	
+/////////////////////////////////
+		int x=4;
+		initial begin
+		priority if(x==5)
+			$display("x=%0d",x);
+		else if(x==3)
+			$display("x=%0d",x);
+		else
+			$display("x is either 3 or 5");
+		end
+endmodule
+		
+		
+		
+		
+		
+		
+		
+
+
+
