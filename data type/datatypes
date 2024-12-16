@@ -1,0 +1,65 @@
+module data_types();
+logic [3:0]logic_dt;
+reg [2:0]reg_dt;
+integer integer_dt;
+int int_dt;
+shortint shortint_dt;
+longint longint_dt;
+bit [7:0]bit_dt;
+byte byte_dt;
+string st_dt;
+
+initial begin
+	logic_dt=4'b1101;
+	reg_dt=2'b11;
+	integer_dt=800;
+	int_dt=87;
+	shortint_dt=99;
+	longint_dt=10000009;
+	bit_dt=8'b10110011;
+	byte_dt=8'b1011;
+	st_dt="vinay";
+	end
+	
+	
+struct{
+	string name;
+	int age;
+	byte number;}my_data;
+	
+	typedef union{
+	int age;
+	byte number;}my_data;
+	
+	initial begin
+		my_data.name="vinay";
+		my_data.age=5'd23;
+		my_data.number=6'd55;
+		$display("my_data=%p",my_data);
+	
+	 my_data h1,h2,h3;
+		h1.name="vinay";
+		h1.age=5'd23;
+		h1.number=55;
+		$display("vinay_data=%p",h1);
+		
+		h2.name="dev";
+		h2.age=5'd25;
+		h2.number=54;
+		$display("dev_data=%p",h2);
+		
+		h3.name="basya";
+		h3.age=5'd24;
+		h3.number=40;
+		$display("basya_data=%p",h3);
+		end
+		
+		
+
+initial begin
+    $display("longint_dt=%d,bit_dt=%b,byte_dt=%b",longint_dt,bit_dt,byte_dt);
+	$display("string=%s",st_dt);
+   $display("logic_dt=%b,reg_dt=%b ,integer_dt=%b ,int_dt=%d ,shortint_dt=%d",logic_dt,reg_dt,integer_dt,int_dt,shortint_dt);
+   end
+   
+endmodule
